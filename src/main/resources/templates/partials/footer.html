@@ -5,12 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-<ul th:each="park : ${parks}">
-    <th:block th:if="${parks.isEmpty()}">
-  <li th:text="${park.name}"></li>
-    </th:block>
-    <li>Hello!</li>
-</ul>
-
+<footer th:fragment="footer">
+    <div class="card-footer text-muted bg-dark">
+        <h3>This is a footer</h3>
+    </div>
+</footer>
 </body>
 </html>
