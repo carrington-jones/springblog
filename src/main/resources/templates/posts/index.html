@@ -3,9 +3,9 @@
 <head th:replace="partials/head :: head('Posts')"></head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-<div th:each="posts : ${post}">
+<div th:each="posts : ${allPosts}">
     <h1 th:text="${posts.title}"></h1>
-    <h1 th:text="${posts.body}"></h1>
+    <h3 th:text="${posts.body}"></h3>
 
 </div>
 
