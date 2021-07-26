@@ -13,21 +13,12 @@
                 <div class="card-text">
                     <h3 th:text="${posts.body}"></h3>
                 </div>
-                <div class="card-footer">
-                    <div class="d-grid gap-2 d-flex justify-content-end">
-                        <a class="btn btn-primary btn-sm" th:href="@{'/posts/' + ${posts.id} + '/edit'}">Edit
-                            Post</a>
-                        <form th:action="@{'/posts/' + ${posts.id} + '/delete'}" th:method="post">
-                            <input class="btn btn-danger btn-sm" type="submit" value="Delete Post">
-                        </form>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 </div>
 
-    <footer th:replace="partials/footer :: footer"></footer>
-    <div th:replace="partials/scripts :: scripts"></div>
+<footer th:replace="partials/footer :: footer"></footer>
+<div th:replace="partials/scripts :: scripts"></div>
 </body>
 </html>
