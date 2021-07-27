@@ -17,6 +17,7 @@ public class PostController {
     private final UserRepository userDao; //Injecting User Repository
     private final EmailService emailService;
 
+
     public PostController(PostRepository postDao, UserRepository userDao, EmailService emailService) {
         this.postDao = postDao;
         this.userDao = userDao;
@@ -38,6 +39,7 @@ public class PostController {
     @GetMapping(value = "/posts/create")
     public String createPost(Model model) {
         model.addAttribute("createPost", new Post());
+        emailService.prepareAndSend("test@test.com", "Thank you for creating a new post", "Thank you for adding to our blog");
         return "posts/create";
     }
 
