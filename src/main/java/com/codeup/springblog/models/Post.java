@@ -16,7 +16,7 @@ public class Post {
     @Column(nullable = false, length = 600)
     private String body;
 
-    @ManyToOne
+    @ManyToOne //Use many to one here because a post can only have one user. A user can have many posts
     private User user;
 
     public Post(long id, String title, String body, User user) {
