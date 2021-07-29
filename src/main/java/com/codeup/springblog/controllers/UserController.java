@@ -2,6 +2,7 @@ package com.codeup.springblog.controllers;
 
 import com.codeup.springblog.models.User;
 import com.codeup.springblog.models.UserWithRoles;
+import com.codeup.springblog.repositories.PostRepository;
 import com.codeup.springblog.repositories.UserRepository;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -21,10 +22,12 @@ import java.util.Collections;
 public class UserController {
     private UserRepository users;
     private PasswordEncoder passwordEncoder;
+    private PostRepository postDao;
 
-    public UserController(UserRepository users, PasswordEncoder passwordEncoder) {
+    public UserController(UserRepository users, PasswordEncoder passwordEncoder, PostRepository postDao) {
         this.users = users;
         this.passwordEncoder = passwordEncoder;
+        this.postDao = postDao;
     }
 
     @GetMapping("/sign-up")
@@ -50,4 +53,12 @@ public class UserController {
         SecurityContext context = SecurityContextHolder.getContext();
         context.setAuthentication(auth);
     }
+
+    @GetMapping("/profile")
+    public String userProfile(Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("post",postDao.findAllByUser(user));
+        return "users/profile";
+    }
+
 }

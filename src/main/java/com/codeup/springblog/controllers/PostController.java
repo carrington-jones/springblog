@@ -6,6 +6,7 @@ import com.codeup.springblog.repositories.PostRepository;
 import com.codeup.springblog.models.User;
 import com.codeup.springblog.repositories.UserRepository;
 import com.codeup.springblog.services.EmailService;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -44,9 +45,10 @@ public class PostController {
     }
 
     @PostMapping("/posts/create")
-    public String createPost(@RequestParam String title, @RequestParam String body) {
-        User user = userDao.getById(1L);
-        Post post = new Post(title, body, user);
+    public String createPost(@ModelAttribute Post post) {
+        User principal = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = userDao.getById(principal.getId());  // getting currently signed in user; our Dao gets all info needed
+        post.setUser(user); // assigning currently sing user to newly created post
         postDao.save(post);
         return "redirect:/posts";
     }

@@ -24,7 +24,7 @@
                 </li>
                 <li sec:authorize="isAuthenticated()"><a class="dropdown-item" href="posts/create">Create A Post</a>
                 </li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li sec:authorize="isAuthenticated()"><a class="nav-link" href="users/profile">Profile</a>
                 <li>
                     <hr class="dropdown-divider">
                 </li>
