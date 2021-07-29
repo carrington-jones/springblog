@@ -2,7 +2,7 @@ package com.codeup.springblog.controllers;
 
 import com.codeup.springblog.models.User;
 import com.codeup.springblog.models.UserWithRoles;
-import com.codeup.springblog.respositories.UserRepository;
+import com.codeup.springblog.repositories.UserRepository;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
