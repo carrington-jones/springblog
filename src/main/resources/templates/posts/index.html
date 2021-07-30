@@ -1,22 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials/head :: head('Posts')"></head>
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
-<div class="row">
+<main class="container">
+    <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+            <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
+            <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and
+                efficiently about what’s most interesting in this post’s contents.</p>
+            <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
+        </div>
+    </div>
     <div th:each="posts : ${allPosts}">
-        <div class="col-4">
-            <div class="card my-3">
-                <div class="card-header">
-                    <h1 th:text="${posts.title}"></h1>
-                </div>
-                <div class="card-text">
-                    <h3 th:text="${posts.body}"></h3>
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <h3 th:text="${posts.title}" class="mb-0">Featured post</h3>
+                        <p th:text="${posts.body}" class="card-text mb-auto"></p>
+                        <a href="#" class="stretched-link">Continue reading</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+
+
+
+
+
+
+
+
+<!-- Commenting out for test-->
+<!--<div class="row">-->
+<!--    <div th:each="posts : ${allPosts}">-->
+<!--        <div class="col-4">-->
+<!--            <div class="card my-3">-->
+<!--                <div class="card-header">-->
+<!--                    <h1 th:text="${posts.title}"></h1>-->
+<!--                </div>-->
+<!--                <div class="card-text">-->
+<!--                    <h3 th:text="${posts.body}"></h3>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <footer th:replace="partials/footer :: footer"></footer>
 <div th:replace="partials/scripts :: scripts"></div>
