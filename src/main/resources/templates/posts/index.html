@@ -12,10 +12,9 @@
             <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
         </div>
     </div>
-    <div th:each="posts : ${allPosts}">
-        <div class="row mb-2">
-            <div class="col-md-6">
-                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+    <div class="row mb-2">
+    <div class="col-lg-6 col-md-6 col-sm-12" th:each="posts : ${allPosts}">
+                <div class="g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
                         <h3 th:text="${posts.title}" class="mb-0">Featured post</h3>
                         <p th:text="${posts.body}" class="card-text mb-auto"></p>
@@ -24,7 +23,6 @@
                 </div>
             </div>
         </div>
-    </div>
 
 
 
