@@ -108,7 +108,7 @@ public class PostsIntegrationTests {
     @Test
     public void testEditPost() throws Exception {
         // Gets the first Post for tests purposes
-        Post existingPost = postDao.findAll().get(0);
+        Post existingPost = postDao.findAll().get(8);
 
         // Makes a Post request to /posts/{id}/edit and expect a redirection to the post show page
         this.mvc.perform(

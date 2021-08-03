@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Log In</title>
     <head th:replace="partials/head :: head('Login Page')"></head>
 </head>
-<body>
+<body class="text-center">
 <nav th:replace="partials/navbar :: navbar"></nav>
 <h1>Log In</h1>
 <div th:if="${param.error}">
@@ -14,14 +15,35 @@
 <div th:if="${param.logout}">
     You have been logged out.
 </div>
+<main class="form-signin">
+    <form th:action="@{/login}" method="post">
+        <!--        <img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">-->
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        <div class="row d-flex justify-content-center">
+            <div class="form-floating col-4">
+                <input class="form-control" id="username" name="username" type="text" placeholder="username">
+                <label for="username">Username</label>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="form-floating col-4">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                <label for="password">Password</label>
+            </div>
+        </div>
+        <button class="col-4 btn btn-lg btn-primary" type="submit">Sign In</button>
+        <p class="mt-5 mb-3 text-muted">© 2021</p>
+    </form>
+</main>
 
-<form th:action="@{/login}" method="post">
-    <label for="username">Username</label>
-    <input id="username" name="username" type="text" />
-    <label for="password">Password</label>
-    <input id="password" name="password" type="password" />
-    <input type="submit" value="Log In" />
-</form>
+
+<!--<form th:action="@{/login}" method="post">-->
+<!--    <label for="username">Username</label>-->
+<!--    <input id="username" name="username" type="text"/>-->
+<!--    <label for="password">Password</label>-->
+<!--    <input id="password" name="password" type="password"/>-->
+<!--    <input type="submit" value="Log In"/>-->
+<!--</form>-->
 
 <footer th:replace="partials/footer :: footer"></footer>
 <div th:replace="partials/scripts :: scripts"></div>
