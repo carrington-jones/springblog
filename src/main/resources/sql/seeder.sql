@@ -1,6 +1,9 @@
 TRUNCATE springblog_db.ads;
+TRUNCATE springblog_db.ads_categories;
 TRUNCATE springblog_db.posts;
 TRUNCATE springblog_db.users;
+DROP TABLE springblog_db.ads_categories;
+DROP TABLE springblog_db.ads;
 
 INSERT INTO springblog_db.users(username, email, password)
 VALUES ('admin', 'admin@email.com', 'password');
