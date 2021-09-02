@@ -28,7 +28,6 @@
                 <li class="nav-item">
                     <a sec:authorize="!isAuthenticated()" class="nav-link" href="/sign-up">Sign-up</a>
                 </li>
-                <li><a class="nav-link" href="#">Something else here</a></li>
             </ul>
             <form sec:authorize="isAuthenticated()" class="d-flex" th:action="@{/logout}" th:method="post">
                 <button class="btn btn-outline-dark" type="submit">Logout</button>

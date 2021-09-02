@@ -12,7 +12,9 @@
     <h5 th:text="${post.title}" class="card-title"></h5>
     <p th:text="${post.body}" class="card-text"></p>
     <a th:href="@{'/posts/' + ${post.id} + '/edit'}" class="btn btn-primary">Edit</a>
-      <a th:href="@{'/posts/' + ${post.id} + '/delete'}" class="btn btn-danger">Delete</a>
+    <a th:replace="partials/deletemodal :: modal"></a>
+
+<!--      <a th:href="@{'/posts/' + ${post.id} + '/delete'}" class="btn btn-danger">Delete</a>-->
 </div>
 
 <footer th:replace="partials/footer :: footer"></footer>
